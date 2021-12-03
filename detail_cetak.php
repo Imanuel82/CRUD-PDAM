@@ -57,24 +57,23 @@
     $pdf->Cell(150,3,   "",0,2);
 
 
-    $pdf->Cell(190,5,"No. Tagihan       : $nomorTagihan",0,2);
-    $pdf->Cell(190,5,"ID Meteran         : $id_Meteran",0,2);
-    $pdf->Cell(190,5,"Nama                 : $id_nama",0,2);
-    $pdf->Cell(190,5,"Alamat               : $id_alamat",0,2);
-    $pdf->Cell(190,5,"Tarif                   : $id_golongan",0,2);
-    $pdf->Cell(190,5,"Pakai                 : $id_pakai",0,2);
-    $pdf->Cell(190,5,"Tanggal             : $id_tanggal",0,2);
-    $pdf->Cell(190,3,   "",0,2);
-    $pdf->Cell(190,3,   "",0,2);
+    $pdf->Cell(130,5,"No. Tagihan       : $nomorTagihan",0,0);
+    $pdf->Cell(59,5,"Angsuran           : Rp $id_angsuran",0,1);
+    $pdf->Cell(130,5,"ID Meteran         : $id_Meteran",0,0);
+    $pdf->Cell(59,5,"Rek Air               : Rp $id_rek",0,1);
+    $pdf->Cell(130,5,"Nama                 : $id_nama",0,0);
+    $pdf->Cell(59,5,"Materai               : Rp $id_materai",0,1);
+    $pdf->Cell(130,5,"Alamat               : $id_alamat",0,0);
+    $pdf->Cell(59,5,"Administrasi       : Rp $id_administrasi",0,1);
+    
+    $pdf->Cell(130,5,"Tarif                   : $id_golongan",0,0);
+    $pdf->Cell(130,5,"-------------------------------------------- +",0,1);
 
-    $pdf->Cell(190,5,"==========Detail Bayar========",0,2);
-    $pdf->Cell(190,5,"Angsuran           : Rp $id_angsuran",0,2);
-    $pdf->Cell(190,5,"Rek Air               : Rp $id_rek",0,2);
-    $pdf->Cell(190,5,"Materai               : Rp $id_materai",0,2);
-    $pdf->Cell(190,5,"Administrasi       : Rp $id_administrasi",0,2);
-    $pdf->Cell(190,5,"-------------------------------------------- +",0,2);
-    $pdf->Cell(190,3,   "",0,2);
-    $pdf->Cell(190,5,"Total                  : Rp $id_total.00          ($id_status)",0,2);
+    $pdf->Cell(130,5,"Pakai                 : $id_pakai",0,2);
+
+    $pdf->Cell(59,5,"Tanggal             : $id_tanggal",0,1);
+
+    $pdf->Cell(195,5,"Total        : Rp $id_total.00  ($id_status)",0,0,'R');
 
     $pdf->Output();
 

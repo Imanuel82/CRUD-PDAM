@@ -23,6 +23,8 @@ $pelanggan = query("SELECT * FROM pelanggan");
 <a href="index_petugas.php" class="btn btn-outline-warning">Beranda Data Petugas</a>
 
 <a href="index_tagihan.php" class="btn btn-outline-warning">Beranda Data Tagihan</a>
+
+<a href="index_golongan.php" class="btn btn-outline-info">Info Golongan</a>
 <br><br><br>
 
 <table border="1" cellpadding="10" cellspacing="0">

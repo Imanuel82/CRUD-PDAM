@@ -1,0 +1,69 @@
+create database pdam1;
+
+use pdam1;
+
+create table golongan(
+    idGolongan char(2) not null primary key,
+    tarifGolongan int not null
+    );
+    
+create table petugas(
+    idPetugas int not null primary key auto_increment,
+    namaPetugas varchar(50) not null,
+    alamatPetugas varchar(50) not null
+    );
+    
+create table pelanggan(
+    idMeteran int not null primary key,
+    namaPelanggan varchar(50) not null,
+    alamatPelanggan varchar(50) not null,
+    idGolongan char(2) not null,
+    foreign key (idGolongan) references golongan(idGolongan)
+    on delete cascade
+    on update cascade
+    );
+    
+create table tagihan(
+    nomorTagihan int not null primary key auto_increment,
+    idMeteran int not null,
+    tanggalTagihan date not null,
+    standAwal int not null,
+    standAkhir int not null,
+    angsuran int,
+    materai int,
+    administrasi int,
+    idPetugas int not null,
+    statusTagihan enum("lunas","belum lunas") not null,
+    foreign key (idMeteran) references pelanggan (idMeteran) 
+    on delete cascade
+    on update cascade,
+    foreign key (idPetugas) references petugas (idPetugas)
+    on delete cascade
+    on update cascade
+    );
+
+
+insert into golongan values
+('2A',10000),
+('2B',8000),
+('2C',5000)
+;
+
+insert into pelanggan values
+(129818,'Joko','Jl.Pekanbaru no.99','2A'),
+(137238,'Joni','Jl.Jeruk No.3','2B'),
+(139109,'Juliato','Jl.Mutiara No.20','2C')
+;
+
+insert into petugas(namaPetugas,alamatPetugas) values
+('Juki','Jl.Belimbing No.5'),
+('Dayat','Jl.Perintis Kemerdekaan No.2')
+;
+
+insert into tagihan(idMeteran,tanggalTagihan,standAwal,standAkhir,angsuran,materai,administrasi,idPetugas,statusTagihan) values
+(129818,'2021-11-10',10,20,0,0,2000,1,'lunas'),
+(137238,'2021-07-13',12000,12055,0,0,2000,2,'lunas'),
+(137238,'2021-08-11',12055,12100,0,0,2000,1,'lunas')
+;
+
+
